@@ -35,6 +35,11 @@ const handleMessage = function (sender_psid, receive_message) {
         response = { text: `You sent me a message: "${receive_message.text}". Now send me an image!` };
     }
 
+    // Check if the message contains attachments
+    if (receive_message.attachments) {
+        response = { text: "Sorry! Now I cannot process your attachments, please ask me something for help!" };
+    }
+
     // Send the response message
     callSendAPI(sender_psid, response);
 };
