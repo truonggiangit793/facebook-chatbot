@@ -1,5 +1,6 @@
 import request from "request";
 import configs from "../../env.config";
+import platformOpenAI from "./platform.openai";
 
 const handlePostback = function (sender_psid, receive_postback) {};
 
@@ -26,13 +27,13 @@ const callSendAPI = function (sender_psid, response) {
     );
 };
 
-const handleMessage = function (sender_psid, receive_message) {
+const handleMessage = async function (sender_psid, receive_message) {
     let response;
 
     // Check if the message contains text
     if (receive_message.text) {
         // Create the payload for a basic text message
-        response = { text: `You sent me a message: "${receive_message.text}". Now send me an image!` };
+        response = await platformOpenAI.createCompletion(receive_message.text);
     }
 
     // Check if the message contains attachments
