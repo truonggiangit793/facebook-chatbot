@@ -34,15 +34,16 @@ const handleMessage = async function (sender_psid, receive_message) {
     if (receive_message.text) {
         // Create the payload for a basic text message
         response = await platformOpenAI.createCompletion(receive_message.text);
+        // Send the response message
+        callSendAPI(sender_psid, response);
     }
 
     // Check if the message contains attachments
     if (receive_message.attachments) {
         response = { text: "How can I assist you today?" };
+        // Send the response message
+        callSendAPI(sender_psid, response);
     }
-
-    // Send the response message
-    callSendAPI(sender_psid, response);
 };
 
 export default { handleMessage, handlePostback, callSendAPI };

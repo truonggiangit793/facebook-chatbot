@@ -10,6 +10,7 @@ const createCompletion = async function (message) {
             model: "text-davinci-003",
             prompt: message,
         });
+        console.log({ completion: completion.data.choices[0].text });
         return completion.data.choices[0].text;
     } catch (error) {
         if (error.response) {
