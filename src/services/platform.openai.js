@@ -13,10 +13,12 @@ const createCompletion = async function (message) {
         if (error.response) {
             console.log(error.response.status);
             console.log(error.response.data);
+            return error.response.data.toString();
+            // return "Oops! An error occurred, please try again!";
         } else {
             console.log(error.message);
+            return error.message;
         }
-        return "Oops! An error occurred, please try again!";
     }
 };
 
