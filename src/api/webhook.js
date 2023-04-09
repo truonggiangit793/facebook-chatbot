@@ -67,18 +67,18 @@ Router.post("/", async (req, res, next) => {
     // };
     if (req.body.object === "page") {
         console.log(req.body.entry[0].message);
-        if (body.entry[0].messaging && body.entry[0].messaging[0].recipient.id === configs.PAGE_ID) {
-            if (body.entry[0].messaging[0].message?.text) {
+        if (req.body.entry[0].messaging && req.body.entry[0].messaging[0].recipient.id === configs.PAGE_ID) {
+            if (req.body.entry[0].messaging[0].message?.text) {
                 const messages = [
                     { role: "system", content: "You are a helpful assistant" },
-                    { role: "user", content: body.entry[0].messaging[0].message.text },
+                    { role: "user", content: req.body.entry[0].messaging[0].message.text },
                 ];
                 await openai
                     .createChatCompletion({ messages, model: "gpt-3.5-turbo" })
                     .then((response) => {
                         console.log("🚀 ~ file: webhook.js:37 ~ .then ~ response:", response);
                         axios.post("https://graph.facebook.com/v16.0/100711156323546/messages?access_token=" + configs.PAGE_ACCESS_TOKEN, {
-                            recipient: { id: body.entry[0].messaging[0].sender.id },
+                            recipient: { id: req.body.entry[0].messaging[0].sender.id },
                             messaging_type: "RESPONSE",
                             message: { text: response.choices[0].message.content },
                         });
@@ -86,7 +86,7 @@ Router.post("/", async (req, res, next) => {
                     .catch((error) => {
                         console.log("🚀 ~ file: webhook.js:44 ~ Router.post ~ error:", error);
                         axios.post("https://graph.facebook.com/v16.0/100711156323546/messages?access_token=" + configs.PAGE_ACCESS_TOKEN, {
-                            recipient: { id: body.entry[0].messaging[0].sender.id },
+                            recipient: { id: req.body.entry[0].messaging[0].sender.id },
                             messaging_type: "RESPONSE",
                             message: { text: "Sorry! An error occur, please try again!" },
                         });
