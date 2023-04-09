@@ -6,15 +6,15 @@ const openai = new OpenAIApi(configuration);
 
 const createCompletion = async function (message) {
     try {
-        const completion = await openai.createCompletion({ model: "gpt-3.5-turbo", messages: [{ role: "user", content: message }] });
+        const completion = await openai.createCompletion({ model: "gpt-3.5-turbo", message: [{ role: "user", content: message }] });
         console.log({ completion: completion.data.choices[0].text });
         return completion.data.choices[0].text;
     } catch (error) {
         if (error.response) {
             console.log(error.response.status);
             console.log(error.response.data);
-            return String(error.response.data);
-            // return "Oops! An error occurred, please try again!";
+            // return String(error.response.data);
+            return "Oops! An error occurred, please try again!";
         } else {
             console.log(error.message);
             return error.message;
