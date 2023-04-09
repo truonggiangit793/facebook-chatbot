@@ -1,0 +1,28 @@
+{
+    "name": "ai_chat_bot",
+    "version": "23.4.7",
+    "description": "Facebook messenger AI ChatBot",
+    "main": "app.js",
+    "scripts": {
+        "start": "node --exec babel-node app.js",
+        "dev": "nodemon --exec babel-node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.20.2",
+        "cookie-parser": "^1.4.6",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "http-errors": "^2.0.0",
+        "ip": "^1.1.8"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.21.0",
+        "@babel/core": "^7.21.4",
+        "@babel/node": "^7.20.7",
+        "@babel/preset-env": "^7.21.4",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.22"
+    }
+}
