@@ -1,11 +1,6 @@
-import { Configuration, OpenAIApi } from "openai";
+import { TOKEN } from "../../env.config";
 import express from "express";
-import axios from "axios";
-import configs from "../../env.config";
-
 const Router = express.Router();
-const configuration = new Configuration({ apiKey: configs.CHAT_GPT_API_KEY });
-const openai = new OpenAIApi(configuration);
 
 Router.get("/", (req, res, next) => {
     let mode = req.query["hub.mode"];
@@ -13,7 +8,7 @@ Router.get("/", (req, res, next) => {
     let challenge = req.query["hub.challenge"];
     if (!mode || !token) return next(new Error("Missed parameter."));
     if (mode && token) {
-        if (mode === "subscribe" && token === process.env.TOKEN) {
+        if (mode === "subscribe" && token === TOKEN) {
             return res.status(200).send(challenge);
         } else {
             return res.sendStatus(403);
@@ -22,31 +17,13 @@ Router.get("/", (req, res, next) => {
 });
 
 Router.post("/", async (req, res, next) => {
-    if (req.body.object === "page") {
-        if (req.body.entry[0].messaging && req.body.entry[0].messaging[0].recipient.id === configs.PAGE_ID) {
-            if (req.body.entry[0].messaging[0].message?.text) {
-                const messages = [
-                    { role: "system", content: "You are a helpful assistant" },
-                    { role: "user", content: req.body.entry[0].messaging[0].message.text },
-                ];
-                await openai
-                    .createChatCompletion({ messages, model: "gpt-3.5-turbo" })
-                    .then((response) => {
-                        axios.post("https://graph.facebook.com/v16.0/100711156323546/messages?access_token=" + configs.PAGE_ACCESS_TOKEN, {
-                            recipient: { id: req.body.entry[0].messaging[0].sender.id },
-                            messaging_type: "RESPONSE",
-                            message: { text: response.data.choices[0].message.content || "Hi there, this is a sample message!" },
-                        });
-                    })
-                    .catch((error) => {
-                        axios.post("https://graph.facebook.com/v16.0/100711156323546/messages?access_token=" + configs.PAGE_ACCESS_TOKEN, {
-                            recipient: { id: req.body.entry[0].messaging[0].sender.id },
-                            messaging_type: "RESPONSE",
-                            message: { text: "Sorry! An error occur, please try again!" },
-                        });
-                    });
-            }
-        }
+    let body = req.body;
+    if (body.object === "page") {
+        body.entry.forEach(function (entry) {
+            let webhook_event = entry.messaging[0];
+            let sender_psid = webhook_event.sender.id;
+            console.log({ webhook_event, sender_psid });
+        });
         return res.status(200).send("EVENT_RECEIVED");
     } else {
         return res.sendStatus(404);
