@@ -5,8 +5,8 @@ import dotenv from "dotenv";
 import express from "express";
 import createError from "http-errors";
 import cookieParser from "cookie-parser";
-import jsonResponse from "./src/utils/json";
-import RouteInitializer from "./src/routes/index";
+import jsonResponse from "./utils/json";
+import RouteInitializer from "./routes/index";
 
 dotenv.config();
 

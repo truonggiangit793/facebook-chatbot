@@ -4,10 +4,10 @@
     "description": "Facebook messenger AI ChatBot",
     "main": "app.js",
     "scripts": {
-        "start": "node --exec babel-node app.js",
-        "dev": "nodemon --exec babel-node app.js",
-        "build": "babel app.js -d dist",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "yarn build && node dist/app.js",
+        "dev": "nodemon --exec babel-node src/app.js",
+        "clean": "rm -rf dist && mkdir dist",
+        "build": "yarn clean && babel ./src -d ./dist"
     },
     "license": "ISC",
     "dependencies": {
@@ -23,6 +23,7 @@
         "@babel/core": "^7.21.4",
         "@babel/node": "^7.20.7",
         "@babel/preset-env": "^7.21.4",
+        "@babel/plugin-transform-runtime": "^7.21.4",
         "morgan": "^1.10.0",
         "nodemon": "^2.0.22"
     }
