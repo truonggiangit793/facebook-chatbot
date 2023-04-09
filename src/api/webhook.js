@@ -31,7 +31,7 @@ Router.post("/", async (req, res, next) => {
                 { role: "system", content: "You are a helpful assistant" },
                 { role: "user", content: body.entry[0].messaging[0].message.text },
             ];
-            openai
+            await openai
                 .createChatCompletion({ messages, model: "gpt-3.5-turbo" })
                 .then((response) => {
                     console.log("🚀 ~ file: webhook.js:37 ~ .then ~ response:", response);
