@@ -2,7 +2,7 @@ import request from "request";
 import configs from "../../env.config";
 import platformOpenAI from "./platform.openai";
 
-const handlePostback = function (sender_psid, receive_postback) {};
+const handlePostback = async function (sender_psid, receive_postback) {};
 
 const callSendAPI = function (sender_psid, response) {
     // Construct the message body
@@ -14,7 +14,7 @@ const callSendAPI = function (sender_psid, response) {
             method: "POST",
             json: request_body,
         },
-        (err, res, body) => {
+        function (err, res, body) {
             if (err) {
                 console.log("Unable to send message!");
             } else {

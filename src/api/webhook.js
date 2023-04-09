@@ -17,10 +17,10 @@ Router.get("/", (req, res, next) => {
     }
 });
 
-Router.post("/", (req, res, next) => {
+Router.post("/", async (req, res, next) => {
     let body = req.body;
     if (body.object === "page") {
-        body.entry.forEach(async function (entry) {
+        await body.entry.forEach(async function (entry) {
             // Get the body of webhook event
             let webhook_event = entry.messaging[0];
 
@@ -31,7 +31,7 @@ Router.post("/", (req, res, next) => {
             if (webhook_event.message) {
                 await messengerPlatform.handleMessage(sender_psid, webhook_event.message);
             } else if (webhook_event.postback) {
-                messengerPlatform.handlePostback(sender_psid, webhook_event.postback);
+                await messengerPlatform.handlePostback(sender_psid, webhook_event.postback);
             }
         });
         return res.status(200).send("EVENT_RECEIVED");
