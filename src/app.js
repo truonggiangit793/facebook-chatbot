@@ -1,14 +1,11 @@
 import ip from "ip";
 import http from "http";
 import logger from "morgan";
-import dotenv from "dotenv";
 import express from "express";
 import createError from "http-errors";
 import cookieParser from "cookie-parser";
 import jsonResponse from "./utils/json";
 import RouteInitializer from "./routes/index";
-
-dotenv.config();
 
 const app = express();
 const port = normalizePort(process.env.PORT || 3000);
