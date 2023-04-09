@@ -35,7 +35,7 @@ Router.post("/", async (req, res, next) => {
                         axios.post("https://graph.facebook.com/v16.0/100711156323546/messages?access_token=" + configs.PAGE_ACCESS_TOKEN, {
                             recipient: { id: req.body.entry[0].messaging[0].sender.id },
                             messaging_type: "RESPONSE",
-                            message: { text: response.choices[0]?.message?.content || "Hi there, this is a sample message!" },
+                            message: { text: response.data.choices[0].message.content || "Hi there, this is a sample message!" },
                         });
                     })
                     .catch((error) => {

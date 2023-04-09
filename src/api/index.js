@@ -4,38 +4,30 @@ const Router = express.Router();
 import { Configuration, OpenAIApi } from "openai";
 import configs from "../../env.config";
 
-const configuration = new Configuration({ apiKey: configs.CHAT_GPT_API_KEY, organization: "org-V6euAtY61X1AZhpGewtGrwZv" });
+const configuration = new Configuration({ apiKey: configs.CHAT_GPT_API_KEY });
 const openai = new OpenAIApi(configuration);
 
 Router.get("/", (req, res, next) => {
     return res.end("Hello world!");
 });
 
-Router.get("/test", async (req, res, next) => {
+Router.get("/test/:message", async (req, res, next) => {
+    const parameter = req.params.message;
     const messages = [
         { role: "system", content: "You are a helpful assistant" },
-        { role: "user", content: "Hello world!" },
+        { role: "user", content: parameter },
     ];
-    const response = await openai.listEngines();
-    console.dir(response, { depth: null });
-    res.end("Hello");
-
-    // await openai
-    //     .createChatCompletion(
-    //         { model: "text-davinci-003", prompt: "Hello world" },
-    //         {
-    //             timeout: 1000,
-    //             headers: {
-    //                 "Example-Header": "example",
-    //             },
-    //         }
-    //     )
-    //     .then((response) => {
-    //         return res.json(response);
-    //     })
-    //     .catch((error) => {
-    //         return res.json(error);
-    //     });
+    await openai
+        .createChatCompletion({ messages, model: "gpt-3.5-turbo" })
+        .then((response) => {
+            console.log("🚀 ~ file: index.js:23 ~ .then ~ response:");
+            console.dir(response, { depth: null });
+            res.json(response.data.choices[0].message.content);
+        })
+        .catch((error) => {
+            console.log("🚀 ~ file: index.js:26 ~ Router.get ~ error:", error);
+            res.json(error);
+        });
 });
 
 export default Router;
