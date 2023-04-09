@@ -29,7 +29,6 @@ const handleMessage = async function (sender_psid, receive_message) {
     if (receive_message.text) {
         // Create the payload for a basic text message
         const response = { text: await platformOpenAI.createCompletion(receive_message.text) };
-        console.log(response);
         // Send the response message
         callSendAPI(sender_psid, response);
     }
