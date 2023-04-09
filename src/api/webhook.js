@@ -1,4 +1,5 @@
 import { TOKEN } from "../../env.config";
+import messengerPlatform from "../services/messenger.platform";
 import express from "express";
 const Router = express.Router();
 
@@ -20,9 +21,18 @@ Router.post("/", async (req, res, next) => {
     let body = req.body;
     if (body.object === "page") {
         body.entry.forEach(function (entry) {
+            // Get the body of webhook event
             let webhook_event = entry.messaging[0];
+
+            // Get the sender psid
             let sender_psid = webhook_event.sender.id;
-            console.log({ webhook_event, sender_psid });
+
+            // Check if the event is a message or postback then pass it through the handler function
+            if (webhook_event.message) {
+                messengerPlatform.handleMessage(sender_psid, webhook_event.message);
+            } else if (webhook_event.postback) {
+                messengerPlatform.handlePostback(sender_psid, webhook_event.postback);
+            }
         });
         return res.status(200).send("EVENT_RECEIVED");
     } else {
