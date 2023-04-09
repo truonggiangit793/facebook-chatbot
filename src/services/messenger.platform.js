@@ -37,7 +37,7 @@ const handleMessage = function (sender_psid, receive_message) {
 
     // Check if the message contains attachments
     if (receive_message.attachments) {
-        response = { text: "Sorry! Now I cannot process your attachments, please ask me something for help!" };
+        response = { text: "How can I assist you today?" };
     }
 
     // Send the response message
