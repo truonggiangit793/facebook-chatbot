@@ -7,6 +7,7 @@ const openai = new OpenAIApi(configuration);
 const createCompletion = async function (message) {
     try {
         const completion = await openai.createCompletion({ model: "text-davinci-003", prompt: message }, { timeout: 60000 });
+        console.log(completion.data);
         return completion.data.choices[0].text;
     } catch (error) {
         if (error.response) {
