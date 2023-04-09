@@ -6,9 +6,12 @@ const openai = new OpenAIApi(configuration);
 
 const createCompletion = async function (message) {
     try {
-        const completion = await openai.createCompletion({ model: "text-davinci-003", prompt: message }, { timeout: 60000 });
-        console.log(completion.data);
-        return completion.data.choices[0].text;
+        const completion = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: message }],
+        });
+        console.log(completion.data.choices[0].message);
+        return completion.data.choices[0].message;
     } catch (error) {
         if (error.response) {
             console.log(error.response.status);
