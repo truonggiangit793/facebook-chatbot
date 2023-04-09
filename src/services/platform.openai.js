@@ -10,7 +10,6 @@ const createCompletion = async function (message) {
             model: "gpt-3.5-turbo",
             messages: [{ role: "user", content: message }],
         });
-        console.log(completion.data.choices[0].message);
         return completion.data.choices[0].message;
     } catch (error) {
         if (error.response) {
