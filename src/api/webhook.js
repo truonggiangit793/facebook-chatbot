@@ -23,10 +23,8 @@ Router.post("/", async (req, res, next) => {
         await body.entry.forEach(async function (entry) {
             // Get the body of webhook event
             let webhook_event = entry.messaging[0];
-
             // Get the sender psid
             let sender_psid = webhook_event.sender.id;
-
             // Check if the event is a message or postback then pass it through the handler function
             if (webhook_event.message) {
                 await messengerPlatform.handleMessage(sender_psid, webhook_event.message);

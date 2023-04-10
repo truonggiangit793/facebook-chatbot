@@ -10,7 +10,9 @@ Router.get("/", (req, res, next) => {
 Router.get("/test/:message", async (req, res, next) => {
     const message = req.params.message;
     const response = await platformOpenAI.createCompletion(message);
-    res.json(response);
+    res.set({ "Content-Type": "text/plain; charset=utf-8" });
+    res.write(response, "utf-8");
+    res.end();
 });
 
 export default Router;
