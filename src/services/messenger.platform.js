@@ -10,7 +10,7 @@ const handleSenderAction = function (sender_psid, sender_action) {
     // Send the message to facebook api
     request(
         {
-            uri: "https://graph.facebook.com/v16.0/100711156323546/messages",
+            uri: "https://graph.facebook.com/v16.0/" + configs.PAGE_ID + "/messages",
             qs: { access_token: configs.PAGE_ACCESS_TOKEN, sender_action, recipient: { id: sender_psid } },
             method: "POST",
         },
@@ -62,6 +62,8 @@ const handleMessage = async function (sender_psid, receive_message) {
     // Check if the message contains attachments
     if (receive_message.attachments) {
         const response = { text: "How can I assist you today?" };
+        // Send the sender action
+        handleSenderAction(sender_psid, "typing_off");
         // Send the response message
         callSendAPI(sender_psid, response);
     }
