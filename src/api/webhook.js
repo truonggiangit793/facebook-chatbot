@@ -27,8 +27,14 @@ Router.post("/", async (req, res, next) => {
             let sender_psid = webhook_event.sender.id;
             // Check if the event is a message or postback then pass it through the handler function
             if (webhook_event.message) {
+                // Send the sender actions
+                messengerPlatform.handleSenderAction(sender_psid, "mark_seen");
+                // Send the sender actions
+                messengerPlatform.handleSenderAction(sender_psid, "typing_on");
+                // Handle message
                 await messengerPlatform.handleMessage(sender_psid, webhook_event.message);
             } else if (webhook_event.postback) {
+                // Handle postback
                 await messengerPlatform.handlePostback(sender_psid, webhook_event.postback);
             }
         });

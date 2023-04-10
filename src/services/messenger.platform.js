@@ -6,7 +6,7 @@ import platformOpenAI from "./platform.openai";
 const handlePostback = async function (sender_psid, receive_postback) {};
 
 // Function to handle sender actions
-const handleSenderAction = async function (sender_psid, sender_action) {
+const handleSenderAction = function (sender_psid, sender_action) {
     // Send the message to facebook api
     request(
         {
@@ -55,13 +55,9 @@ const handleMessage = async function (sender_psid, receive_message) {
         // Create the payload for a basic text message
         const response = await platformOpenAI.createCompletion(receive_message.text);
         // Send the sender action
-        handleSenderAction(sender_psid, "mark_seen");
-        // Send the sender action
-        handleSenderAction(sender_psid, "typing_on");
+        handleSenderAction(sender_psid, "typing_off");
         // Send the response message
         callSendAPI(sender_psid, { text: response });
-        // Send the sender action
-        handleSenderAction(sender_psid, "typing_off");
     }
     // Check if the message contains attachments
     if (receive_message.attachments) {
@@ -71,4 +67,4 @@ const handleMessage = async function (sender_psid, receive_message) {
     }
 };
 
-export default { handleMessage, handlePostback, callSendAPI };
+export default { handleMessage, handlePostback, callSendAPI, handleSenderAction };
