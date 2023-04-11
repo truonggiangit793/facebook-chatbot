@@ -7,7 +7,6 @@ Router.get("/", (req, res, next) => {
     let mode = req.query["hub.mode"];
     let token = req.query["hub.verify_token"];
     let challenge = req.query["hub.challenge"];
-    if (!mode || !token) return next(new Error("Missed parameter."));
     if (mode && token) {
         if (mode === "subscribe" && token === TOKEN) {
             return res.status(200).send(challenge);
@@ -15,13 +14,14 @@ Router.get("/", (req, res, next) => {
             return res.sendStatus(403);
         }
     }
+    return res.sendStatus(403);
 });
 
 Router.post("/", async (req, res, next) => {
     let body = req.body;
     if (body.object === "page") {
         await body.entry.forEach(async function (entry) {
-            // console.dir(entry, { depth: null });
+            console.dir(entry, { depth: null });
             // Get the body of webhook event
             let webhook_event = entry.messaging[0];
             // Get the sender psid

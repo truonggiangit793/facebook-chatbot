@@ -9,7 +9,7 @@ import RouteInitializer from "./routes/index";
 
 const app = express();
 const port = normalizePort(process.env.PORT || 3000);
-const debug = require("debug")("course-service:server");
+const debug = require("debug")("ai_chat_bot:server");
 
 app.use(logger("dev"));
 app.use(express.json());
