@@ -43,6 +43,7 @@ const callSendAPI = function (sender_psid, response) {
                 console.dir(err, { depth: null });
             } else {
                 console.log("Message sent successfully!");
+                console.dir(res, { depth: null });
             }
         }
     );
