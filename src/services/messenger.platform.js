@@ -16,8 +16,8 @@ const handleSenderAction = function (sender_psid, sender_action) {
         },
         function (err, res, body) {
             if (err) {
+                // console.dir(err, { depth: null });
                 console.log("Unable to send a sender action!");
-                console.dir(err, { depth: null });
             } else {
                 console.log("Sent a sender action!");
             }
@@ -40,10 +40,10 @@ const callSendAPI = function (sender_psid, response) {
         function (err, res, body) {
             if (err) {
                 console.log("Unable to send message!");
-                console.dir(err, { depth: null });
+                // console.dir(err, { depth: null });
             } else {
                 console.log("Message sent successfully!");
-                console.dir(res, { depth: null });
+                // console.dir(res, { depth: null });
             }
         }
     );
