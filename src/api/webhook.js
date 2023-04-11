@@ -21,8 +21,8 @@ Router.post("/", async (req, res, next) => {
     let body = req.body;
     if (body.object === "page") {
         await body.entry.forEach(async function (entry) {
+            console.dir(entry, { depth: null });
             // Get the body of webhook event
-            console.log(entry);
             let webhook_event = entry.messaging[0];
             // Get the sender psid
             let sender_psid = webhook_event.sender.id;
