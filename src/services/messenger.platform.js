@@ -32,7 +32,7 @@ const callSendAPI = function (sender_psid, response) {
     // Send the message to facebook api
     request(
         {
-            uri: "https://graph.facebook.com/v16.0/me/messages",
+            uri: "https://graph.facebook.com/v16.0/" + configs.PAGE_ID + "/messages",
             qs: { access_token: configs.PAGE_ACCESS_TOKEN },
             method: "POST",
             json: request_body,
