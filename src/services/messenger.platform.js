@@ -40,10 +40,8 @@ const callSendAPI = function (sender_psid, response) {
         function (err, res, body) {
             if (err) {
                 console.log("Unable to send message!");
-                // console.dir(err, { depth: null });
             } else {
                 console.log("Message sent successfully!");
-                // console.dir(res, { depth: null });
             }
         }
     );

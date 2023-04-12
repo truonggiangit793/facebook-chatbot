@@ -21,7 +21,6 @@ Router.post("/", async (req, res, next) => {
     let body = req.body;
     if (body.object === "page") {
         await body.entry.forEach(async function (entry) {
-            console.dir(entry, { depth: null });
             if (entry.messaging) {
                 // Get the body of webhook event
                 let webhook_event = entry.messaging[0];
@@ -39,6 +38,22 @@ Router.post("/", async (req, res, next) => {
                     // Handle postback
                     await messengerPlatform.handlePostback(sender_psid, webhook_event.postback);
                 }
+            }
+            if (entry.standby) {
+                // Get the body of webhook event
+                let webhook_event = entry.standby[0];
+                // Get the sender psid
+                let sender_psid = webhook_event.sender.id;
+                // Send the sender actions
+                messengerPlatform.handleSenderAction(sender_psid, "mark_seen");
+                // Send the sender actions
+                messengerPlatform.handleSenderAction(sender_psid, "typing_on");
+                // Define response
+                const response = { text: "Sorry! We cannot going on this conversion, please come back later!" };
+                // Send the sender action
+                handleSenderAction(sender_psid, "typing_off");
+                // Handle send message
+                messengerPlatform.callSendAPI(sender_psid, response);
             }
         });
         return res.status(200).send("EVENT_RECEIVED");
