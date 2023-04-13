@@ -12,3 +12,6 @@
 >>>>>> 6:07:59 PM - 4/13/2023 GET[200]: /logs/logs.txt 0.934ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 >>>>>> 6:07:59 PM - 4/13/2023 GET[200]: /logs/logs.txt 1.085ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 >>>>>> 6:08:00 PM - 4/13/2023 GET[200]: /logs/logs.txt 1.157ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+>>>>>> 6:18:40 PM - 4/13/2023 GET[200]: / 0.801ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+>>>>>> 6:18:43 PM - 4/13/2023 GET[200]: /logs 3.053ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+>>>>>> 6:19:51 PM - 4/13/2023 GET[200]: /logs 5.260ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36

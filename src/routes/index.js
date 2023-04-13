@@ -1,10 +1,9 @@
-import express from "express";
-import path from "path";
 import webhook from "@/api/webhook";
 import index from "@/api/index";
+import logs from "@/api/logs";
 
 export default function (app) {
     app.use("/", index);
-    app.use("/logs", express.static(path.join(__dirname, "../", "logs")));
+    app.use("/logs", logs);
     app.use("/webhook", webhook);
 }
