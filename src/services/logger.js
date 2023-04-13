@@ -16,9 +16,9 @@ export default logger(function (tokens, req, res) {
 
     if (!fs.existsSync(logFilePath)) fs.mkdir(logFilePath, { recursive: true }, (err) => {});
 
-    fs.access(logFile, fs.constants.F_OK, (err) => {
+    fs.readFile(logFile, (err, data) => {
         if (err) return fs.writeFile(logFile, response, (err) => {});
-        fs.appendFile(logFilePath, response + "\n", (err) => {});
+        return fs.appendFile(logFile, response + "\n", (err) => {});
     });
 
     return response;
