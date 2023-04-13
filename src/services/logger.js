@@ -1,7 +1,8 @@
 import fs from "fs";
 import logger from "morgan";
 
-const logFilePath = "./src/logs/logs.txt";
+const logFilePath = "./src/logs/";
+const logFile = "./src/logs/logs.txt";
 
 export default logger(function (tokens, req, res) {
     const date = new Date(tokens.date());
@@ -12,8 +13,13 @@ export default logger(function (tokens, req, res) {
     const userAgent = req.headers["user-agent"];
     const responseTime = tokens["response-time"](req, res);
     const response = `>>>>>> ${time} ${method}[${status}]: ${url} ${responseTime}ms - ${userAgent}`;
-    fs.appendFile(logFilePath, response + "\n", (err) => {
-        if (err) throw err;
+
+    if (!fs.existsSync(logFilePath)) fs.mkdir(logFilePath, { recursive: true }, (err) => {});
+
+    fs.access(logFile, fs.constants.F_OK, (err) => {
+        if (err) return fs.writeFile(logFile, response, (err) => {});
+        fs.appendFile(logFilePath, response + "\n", (err) => {});
     });
+
     return response;
 });
