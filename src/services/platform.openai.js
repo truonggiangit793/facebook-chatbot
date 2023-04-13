@@ -1,4 +1,4 @@
-import configs from "../../env.config";
+import configs from "@root/env.config";
 import { Configuration, OpenAIApi } from "openai";
 
 const createCompletion = async function (message) {

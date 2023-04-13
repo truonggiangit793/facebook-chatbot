@@ -1,7 +1,7 @@
 import express from "express";
 const Router = express.Router();
 
-import platformOpenAI from "../services/platform.openai";
+import platformOpenAI from "@/services/platform.openai";
 
 Router.get("/", (req, res, next) => {
     return res.end("Hello world!");

@@ -1,5 +1,5 @@
-import { TOKEN } from "../../env.config";
-import messengerPlatform from "../services/messenger.platform";
+import { TOKEN } from "@root/env.config";
+import messengerPlatform from "@/services/messenger.platform";
 import express from "express";
 const Router = express.Router();
 

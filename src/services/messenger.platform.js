@@ -1,6 +1,6 @@
 import request from "request";
-import configs from "../../env.config";
-import platformOpenAI from "./platform.openai";
+import configs from "@root/env.config";
+import platformOpenAI from "@/services/platform.openai";
 
 // Function to handle postback
 const handlePostback = async function (sender_psid, receive_postback) {};

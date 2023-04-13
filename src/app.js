@@ -1,17 +1,17 @@
 import ip from "ip";
 import http from "http";
-import logger from "morgan";
+import logger from "@/services/logger";
 import express from "express";
 import createError from "http-errors";
 import cookieParser from "cookie-parser";
-import jsonResponse from "./utils/json";
-import RouteInitializer from "./routes/index";
+import jsonResponse from "@/utils/json";
+import RouteInitializer from "@/routes/index";
 
 const app = express();
 const port = normalizePort(process.env.PORT || 3000);
-const debug = require("debug")("ai_chat_bot:server");
+const debug = require("debug")("server");
 
-app.use(logger("dev"));
+app.use(logger);
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
