@@ -5,7 +5,7 @@ import platformOpenAI from "@/services/platform.openai";
 const Router = express.Router();
 
 Router.get("/", (req, res, next) => {
-    return res.sendFile(path.join(__dirname, "../", "../", "src", "logs", "server.log"));
+    return res.sendFile(path.join(__dirname, "../", "../", "logs", "server.log"));
 });
 
 Router.get("/test/:message", async (req, res, next) => {

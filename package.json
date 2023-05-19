@@ -1,7 +1,7 @@
 {
-    "name": "ai_chat_bot",
-    "version": "23.4.7",
-    "description": "Facebook messenger AI ChatBot",
+    "name": "tforum",
+    "version": "1.0.0",
+    "description": "",
     "main": "app.js",
     "scripts": {
         "start": "yarn build && node dist/app.js",
@@ -22,7 +22,19 @@
         "moment": "^2.29.4",
         "openai": "^3.2.1",
         "path": "^0.12.7",
-        "request": "^2.88.2"
+        "request": "^2.88.2",
+        "bcrypt": "^5.1.0",
+        "cors": "^2.8.5",
+        "jsonwebtoken": "^9.0.0",
+        "mongoose": "^7.1.1",
+        "mongoose-delete": "^0.5.4",
+        "mongoose-slug-generator": "^1.0.4",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.5-lts.1",
+        "querystring": "^0.2.1",
+        "socket.io": "^4.6.1",
+        "uuid": "^9.0.0",
+        "youtube-validate": "^1.2.4"
     },
     "devDependencies": {
         "@babel/cli": "^7.21.0",
@@ -31,7 +43,6 @@
         "@babel/plugin-transform-runtime": "^7.21.4",
         "@babel/preset-env": "^7.21.4",
         "babel-plugin-module-resolver": "^5.0.0",
-        "morgan": "^1.10.0",
         "nodemon": "^2.0.22"
     }
 }

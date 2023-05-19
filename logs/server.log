@@ -1,0 +1,67 @@
+>>>> 14/05/2023|06:38:35PM| Local address: http://localhost:3030
+3030
+>>>> 14/05/2023|06:38:42PM| Network address: http://172.17.12.62:3030
+>>>> 14/05/2023|06:38:42PM| Local address: http://localhost:3030
+>>>> 14/05/2023|06:38:59PM| GET[200]: /logs - 12.731ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+>>>> 14/05/2023|06:38:59PM| NotFoundError: Not Found
+NotFoundError: Not Found
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/src/app.js:24:28
+    at Layer.handle [as handle_request] (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:328:13)
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:280:10)
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:646:15
+    at next (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:265:14)
+    at Function.handle (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:328:13)
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:280:10)
+    at urlencodedParser (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/node_modules/body-parser/lib/types/urlencoded.js:91:7)
+    at Layer.handle [as handle_request] (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:328:13)
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:280:10)
+    at cookieParser (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/cookie-parser/index.js:71:5)
+    at Layer.handle [as handle_request] (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:328:13)
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:280:10)
+    at jsonParser (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/node_modules/body-parser/lib/types/json.js:110:7)
+    at Layer.handle [as handle_request] (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:328:13)
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:280:10)
+    at logger (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/morgan/index.js:144:5)
+    at Layer.handle [as handle_request] (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:328:13)
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:280:10)
+    at expressInit (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/middleware/init.js:40:5)
+    at Layer.handle [as handle_request] (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:328:13)
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:280:10)
+    at query (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/middleware/query.js:45:5)
+    at Layer.handle [as handle_request] (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:328:13)
+    at /Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/truonggiangit793/Desktop/facebook-chatbot/node_modules/express/lib/router/index.js:346:12)
+>>>> 14/05/2023|06:38:59PM| GET[404]: /favicon.ico - 14.033ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+>>>> 14/05/2023|06:39:16PM| GET[200]: /logs - 6.200ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+>>>> 14/05/2023|06:39:19PM| GET[200]: /logs - 2.230ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+>>>> 14/05/2023|06:39:20PM| GET[200]: /logs - 2.430ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+>>>> 14/05/2023|06:39:21PM| GET[200]: /logs - 1.316ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+>>>> 14/05/2023|06:39:21PM| GET[200]: /logs - 1.515ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+>>>> 14/05/2023|06:40:05PM| Local address: http://localhost:3030
+>>>> 14/05/2023|06:40:05PM| Network address: http://172.17.12.62:3030
+>>>> 14/05/2023|06:41:05PM| Local address: http://localhost:3030
+>>>> 14/05/2023|06:41:05PM| Network address: http://172.17.12.62:3030

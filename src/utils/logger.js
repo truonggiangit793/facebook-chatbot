@@ -3,8 +3,8 @@ import fs from "fs";
 import logger from "morgan";
 import moment from "moment";
 
-const logFilePath = "./src/logs";
-const logFile = "./src/logs/server.log";
+const logFilePath = "./logs";
+const logFile = "./logs/server.log";
 
 if (!fs.existsSync(logFilePath)) fs.mkdir(logFilePath, { recursive: true }, (err) => {});
 
